@@ -1,4 +1,5 @@
 使用JAVA编写的知乎爬虫，根据“轮带逛”这一原理，搜索轮子哥的所有动态，根据关键字来筛选感兴趣的问题。
+
 Tips:
 	1.运行程序之前需要在/ZhihuSpider/conf/filter.conf里写入自己需要的关键词，如“轮子哥”，保存。
 	2.程序入口/ZhihuSpider/src/main/java/com/diu/spider/SpiderStarter.java，直接运行即可。	
