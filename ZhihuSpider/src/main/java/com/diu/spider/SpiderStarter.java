@@ -89,7 +89,6 @@ public class SpiderStarter {
 		    Initial.zhiHuUrlsQueue[j] = new UrlQueue();
 		    Initial.zhiHuUrlsQueue[j].addElement(url);
 		    
-//		    Initial.zhiHuDynamicUrlQueue.addElement(url);
 			Calendar calendar = new GregorianCalendar(); 
 		    calendar.setTime(date); 
 		    calendar.add(calendar.DATE,-10);

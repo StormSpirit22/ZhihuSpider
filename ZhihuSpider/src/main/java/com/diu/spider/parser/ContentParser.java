@@ -64,7 +64,6 @@ public class ContentParser {
         		moreContentUrl += "?start=" + data_time + "&_xsrf=" + xsrf;
         		synchronized (Initial.zhiHuUrlsQueue[threadIndex]) {
         			Initial.zhiHuUrlsQueue[threadIndex].addElement(moreContentUrl);
-//        			Initial.zhiHuDynamicUrlQueue.addElement(moreContentUrl);
         		}
         	}
         	

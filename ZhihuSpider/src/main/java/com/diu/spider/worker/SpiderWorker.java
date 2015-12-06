@@ -33,18 +33,12 @@ public class SpiderWorker implements Runnable{
 		System.out.println("Spider-" + threadIndex + ": running...");
 		String time = new SimpleDateFormat("yyyy-MM-dd").format(new Date(unixTime*1000));
 		System.out.println("=====Spider-" + threadIndex + ": time: " + time);
-		if(time.equals("2015-10-15"))
-		{
-			int k = 0;
-			k = 1;
-		}
 		while(!Initial.zhiHuUrlsQueue[threadIndex].isEmpty()) {
 			String zhihuUrl = null;
 			
 			if(Initial.zhiHuUrlsQueue[threadIndex].size() != 0) {
 				synchronized (Initial.zhiHuUrlsQueue[threadIndex]) {
 					zhihuUrl = Initial.zhiHuUrlsQueue[threadIndex].outElement();
-//					zhihuUrl = Initial.zhiHuDynamicUrlQueue.outElement();
 				}
 			}
 			String test = zhihuUrl.substring(zhihuUrl.indexOf("=")+1, zhihuUrl.indexOf("&"));
