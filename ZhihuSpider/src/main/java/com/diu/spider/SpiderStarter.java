@@ -11,6 +11,8 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Properties;
 import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
@@ -33,12 +35,12 @@ public class SpiderStarter {
 		
 		ThreadPoolExecutor executor = new ThreadPoolExecutor(10, 10, 2000, TimeUnit.MILLISECONDS,
                 new ArrayBlockingQueue<Runnable>(5));
-//		 ExecutorService spiderThreadPool = Executors.newCachedThreadPool();  
+		 ExecutorService spiderThreadPool = Executors.newCachedThreadPool();  
 		 for (int i = 0; i < Initial.threadNum; i++) {
 			 executor.execute(new SpiderWorker(i));
 	         System.out.println("线程池中线程数目："+executor.getPoolSize()+"，队列中等待执行的任务数目："+
 	         executor.getQueue().size()+"，已执行完别的任务数目："+executor.getCompletedTaskCount());
-//	         spiderThreadPool.execute(new SpiderWorker(i));  
+	         spiderThreadPool.execute(new SpiderWorker(i));  
 		  } 
 		  executor.shutdown();
 
@@ -78,7 +80,7 @@ public class SpiderStarter {
 		int j = 0;
 		for(int i = 0; i < Initial.dayCount; i += 10) {
 			
-		    System.out.println(Math.round(date.getTime()/1000));
+//		    System.out.println(Math.round(date.getTime()/1000));
 		    Long unixTime = new Long(Math.round(date.getTime()/1000));
 		    Initial.timeArray.add(unixTime);
 		    String xsrf = "68a22c4665852a3ed2353bd9a6877010";

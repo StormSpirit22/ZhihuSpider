@@ -64,7 +64,7 @@ public class PageFetcher {
 	 * @param url
 	 * @return
 	 */
-	public FetchedPage getContentFromUrl(String url){
+	public FetchedPage getRequest(String url){
 		String content = null;
 		int statusCode = 500;
 		
@@ -116,7 +116,8 @@ public class PageFetcher {
 	 * @param url
 	 * @return
 	 */
-	public FetchedPage sendPostToUrl(String url, HashMap <String, String> parameters){
+	//本来还含有, HashMap <String, String> parameters参数，但是为了方便直接将参数放在链接里面
+	public FetchedPage postRequest(String url){
 		
 		String content = null;
 		int statusCode = 500;
@@ -125,27 +126,27 @@ public class PageFetcher {
         	
 	        HttpPost httpPost = new HttpPost(url);
 	        
-	        httpPost.setHeader("(Request-Line)","POST /login HTTP/1.1");  
-	        httpPost.setHeader("Accept","*/*");  
-	        httpPost.setHeader("User-Agent","Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36");    
-	        httpPost.setHeader("Referer", "http://www.zhihu.com/people/excited-vczh");
-	        httpPost.setHeader("Origin", "http://www.zhihu.com");
-	        httpPost.setHeader("Host", "www.zhihu.com"); 
-	        httpPost.setHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");    //
-	        httpPost.setHeader("Accept-Language","zh-CN,zh;q=0.8");  
+//	        httpPost.setHeader("(Request-Line)","POST /login HTTP/1.1");  
+//	        httpPost.setHeader("Accept","*/*");  
+//	        httpPost.setHeader("User-Agent","Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36");    
+//	        httpPost.setHeader("Referer", "http://www.zhihu.com/people/excited-vczh");
+//	        httpPost.setHeader("Origin", "http://www.zhihu.com");
+//	        httpPost.setHeader("Host", "www.zhihu.com"); 
+//	        httpPost.setHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");    //
+//	        httpPost.setHeader("Accept-Language","zh-CN,zh;q=0.8");  
 	//      httpPost.setHeader("Accept-Encoding","gzip, deflate");  
 	        
-	        httpPost.setHeader("Connection","keep-alive");
-	        httpPost.setHeader("X-Requested-With", "XMLHttpRequest");
+//	        httpPost.setHeader("Connection","keep-alive");
+//	        httpPost.setHeader("X-Requested-With", "XMLHttpRequest");
 	        List <NameValuePair> params = new ArrayList<NameValuePair>();
 	    	
-	        Iterator iter = parameters.entrySet().iterator();
-	        while (iter.hasNext()) {
-	        	Map.Entry entry = (Map.Entry) iter.next(); 
-	        	Object key = entry.getKey();
-	        	Object val = entry.getValue();
-	        	params.add(new BasicNameValuePair(key.toString(), val.toString()));
-	        }
+//	        Iterator iter = parameters.entrySet().iterator();
+//	        while (iter.hasNext()) {
+//	        	Map.Entry entry = (Map.Entry) iter.next(); 
+//	        	Object key = entry.getKey();
+//	        	Object val = entry.getValue();
+//	        	params.add(new BasicNameValuePair(key.toString(), val.toString()));
+//	        }
     	
 	    	try {
 	    		httpPost.setEntity(new UrlEncodedFormEntity(params,"UTF-8"));

@@ -26,10 +26,13 @@ public class SpiderWorker implements Runnable{
 	public void run() {
 	
 		Long unixTime = null;
-		if(Initial.timeArray.size() != 0) {
-			unixTime = Initial.timeArray.get(0);
-			Initial.timeArray.remove(0);
+		synchronized(Initial.timeArray) {
+			if(Initial.timeArray.size() != 0) {
+				unixTime = Initial.timeArray.get(0);
+				Initial.timeArray.remove(0);
+			}
 		}
+		
 		System.out.println("Spider-" + threadIndex + ": running...");
 		String time = new SimpleDateFormat("yyyy-MM-dd").format(new Date(unixTime*1000));
 		System.out.println("=====Spider-" + threadIndex + ": time: " + time);
