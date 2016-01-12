@@ -2,7 +2,7 @@
 
 Tips:
 
-	1.运行程序之前需要在/ZhihuSpider/conf/filter.conf里写入自己需要的关键词，如“轮子哥”，保存。
+	1.运行程序之前需要在/ZhihuSpider/conf/filter.conf里写入自己需要的关键词，如“轮子哥”，以换行作为多个关键词的分隔符，保存。
 	2.程序入口/ZhihuSpider/src/main/java/com/diu/spider/SpiderStarter.java，直接运行即可。	
 	3.搜索到的问题链接会在/ZhihuSpider/fetchedData/url.txt里~
 
